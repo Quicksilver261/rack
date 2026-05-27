@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+#game-container{width:100%;max-width:900px;margin:24px auto;padding:12px;background:linear-gradient(180deg, rgba(10,12,25,0.9), rgba(16,20,40,0.85));border-radius:8px;box-shadow:0 6px 30px rgba(0,0,0,0.4);}
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans JP',sans-serif;background:radial-gradient(ellipse at top, #0b1b33 0%, #071025 60%, #03040a 100%);}
+canvas{display:block;width:100%;height:auto;background:#07112a;border-radius:6px}
+#ui{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+#score{font-weight:700}
+#startBtn{padding:8px 12px;border-radius:0;border:0;background:#ff8800;color:#fff;cursor:pointer}
+#instructions{font-size:12px;color:#333}
+
+/* Mobile touch controls */
+.touch-controls{pointer-events:auto}
+#jumpBtn{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:88px;height:88px;border-radius:50%;border:0;background:#e53935;color:#fff;font-size:18px;box-shadow:0 6px 20px rgba(0,0,0,0.35);z-index:9999;touch-action:manipulation}
+
+/* Slightly larger start button on small screens */
+@media (max-width:600px){
+	#startBtn{padding:12px 16px;font-size:18px}
+	#instructions{font-size:14px}
+}
+
+/* Portrait tweaks */
+@media (orientation: portrait){
+	#game-container{max-width:420px;padding:10px 10px 18px 10px}
+	#jumpBtn{bottom:22px;width:96px;height:96px}
+  
+	canvas{border-radius:8px}
+}
