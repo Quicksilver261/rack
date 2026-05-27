@@ -11,6 +11,7 @@ exports.handler = async function(event) {
     const SUPABASE_URL = process.env.SUPABASE_URL;
     const SUPABASE_SERVICE_ROLE = process.env.SUPABASE_SERVICE_ROLE;
     if(!SUPABASE_URL || !SUPABASE_SERVICE_ROLE) return { statusCode: 500, body: 'Server not configured' };
+    if(!/supabase\.co/i.test(SUPABASE_URL)) return { statusCode: 500, body: 'Server misconfigured: SUPABASE_URL must point to your Supabase project URL' };
 
     const ip = (event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || '').split(',')[0] || 'unknown';
     const now = Date.now();

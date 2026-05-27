@@ -1,2 +1,10 @@
 # Local Netlify folder
 .netlify
+
+# Node dependencies
+node_modules/
+
+# Common generated files
+dist/
+npm-debug.log*
+.DS_Store

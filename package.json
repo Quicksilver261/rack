@@ -1,0 +1,10 @@
+{
+  "name": "luckjump",
+  "version": "1.0.0",
+  "description": "Jump-to-avoid obstacles game",
+  "main": "luck_single.html",
+  "scripts": {},
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
