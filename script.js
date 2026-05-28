@@ -396,16 +396,16 @@
   obstacleImgs[1].onload = function(){ obstacleImgLoaded[1]=true; obstacleImgBroken[1]= !(obstacleImgs[1].naturalWidth>0 && obstacleImgs[1].naturalHeight>0); if(obstacleImgBroken[1]) console.warn('obstacle2 loaded but zero size'); };
   obstacleImgs[1].onerror = function(e){ if(obstacleImgs[1].src && obstacleImgs[1].src.endsWith('obstacle2.png')){ obstacleImgs[1].src='obstacle2.PNG'; return; } obstacleImgBroken[1]=true; console.warn('Failed load obstacle2', e); };
   obstacleImgs[0].src = 'obstacle1.png'; obstacleImgs[1].src = 'obstacle2.png';
-  // preload player image (place player.png or player.PNG in the same folder)
+  // preload player image (place player2.png or player2.PNG in the same folder)
   const playerImg = new Image();
   let playerImgLoaded = false;
   let playerImgBroken = false;
-  playerImg.onload = function(){ playerImgLoaded = true; playerImgBroken = !(playerImg.naturalWidth>0 && playerImg.naturalHeight>0); if(playerImgBroken) console.warn('player.png loaded but has zero size'); };
+  playerImg.onload = function(){ playerImgLoaded = true; playerImgBroken = !(playerImg.naturalWidth>0 && playerImg.naturalHeight>0); if(playerImgBroken) console.warn('player2.png loaded but has zero size'); };
   playerImg.onerror = function(e){
-    if(playerImg.src && playerImg.src.endsWith('player.png')){ console.warn('player.png failed to load; trying player.PNG'); playerImg.src = 'player.PNG'; return; }
+    if(playerImg.src && playerImg.src.endsWith('player2.png')){ console.warn('player2.png failed to load; trying player2.PNG'); playerImg.src = 'player2.PNG'; return; }
     playerImgBroken = true; console.warn('Failed to load player image', e);
   };
-  playerImg.src = 'player.png';
+  playerImg.src = 'player2.png';
   // preload splash image for the title screen (place splash.png or splash.PNG in the same folder)
   const splashImg = new Image();
   let splashImgLoaded = false;
