@@ -1,4 +1,3 @@
 window.LUCK_CONFIG = {
-  supabaseUrl: "",
-  supabaseAnonKey: ""
+  apiBase: 'https://luck-leaderboard.gingingin20050806.workers.dev'
 };

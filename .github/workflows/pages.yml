@@ -26,16 +26,17 @@ jobs:
 
       - name: Prepare Pages bundle
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          API_BASE: ${{ secrets.API_BASE }}
         run: |
           mkdir -p dist
           cp luck_single.html dist/index.html
-          # Generate config.js from repository secrets at build time (do NOT store anon key in repo)
-          cat > dist/config.js <<'JS'
+          for f in splash.png player.PNG obstacle1.PNG obstacle2.PNG item.PNG item2.PNG item3.PNG; do
+            if [ -f "$f" ]; then cp "$f" dist/; fi
+          done
+          # Generate config.js from repository secret at build time.
+          cat > dist/config.js <<JS
 window.LUCK_CONFIG = {
-  supabaseUrl: "${SUPABASE_URL}",
-  supabaseAnonKey: "${SUPABASE_ANON_KEY}"
+  apiBase: "${API_BASE}"
 };
 JS
           touch dist/.nojekyll

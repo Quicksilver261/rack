@@ -4,9 +4,11 @@ Git-based distribution version of the mini game.
 
 ## How to publish with GitHub Pages
 
-1. Set your Supabase project URL and public anon key in `config.js`.
-2. Push this repository to GitHub.
-3. Enable GitHub Pages with the workflow in `.github/workflows/pages.yml`.
+1. Push this repository to GitHub.
+2. In GitHub repository settings, add Actions secret `API_BASE` with this value:
+	- `https://luck-leaderboard.gingingin20050806.workers.dev`
+3. Run or trigger `.github/workflows/pages.yml`.
+4. Open the published page URL from the workflow run result.
 
 ## Files
 
@@ -16,5 +18,5 @@ Git-based distribution version of the mini game.
 
 ## Leaderboard
 
-The leaderboard reads and writes directly to Supabase when `config.js` is filled in.
-If the config is empty, the game still runs but only the local leaderboard is used.
+The leaderboard uses the Worker proxy through `window.LUCK_CONFIG.apiBase`.
+If `apiBase` is empty, the game still runs but only the local leaderboard is used.
